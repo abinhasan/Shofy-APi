@@ -1,7 +1,6 @@
 from sqlalchemy.orm import Session
 from app.crud import slider as crud
 from fastapi import HTTPException
-
 from app.schemas.slider import SliderCreate, SliderUpdate
 
 

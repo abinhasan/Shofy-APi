@@ -28,6 +28,14 @@ Visit the docs at:
 
 ---
 
+## 🐳 Run with Docker
+
+### 1. Build and run
+
+```bash
+docker-compose up --build
+```
+
 ## 🧪 Run Tests
 
 > Run from project root (where the `app/` folder exists):
@@ -59,6 +67,8 @@ Shofy_catalog/
 │   ├── schemas/          # Pydantic schemas
 │   └── main.py           # Entry point
 ├── tests/                # Unit + API tests
+├── Dockerfile
+├── docker-compose.yml
 ├── requirements.txt
 └── README.md
 ```

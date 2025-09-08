@@ -17,7 +17,7 @@ def create_slider(db: Session, slider: SliderCreate):
     return db_slider
 
 def update_slider(db: Session, db_slider: Slider, updates: SliderUpdate):
-    for field, value in updates.dict().items():
+    for field, value in updates.model_dump().items():
         setattr(db_slider, field, value)
     db.commit()
     db.refresh(db_slider)

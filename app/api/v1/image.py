@@ -36,12 +36,16 @@ def get_images(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
 
 
 @router.put("/images/{image_id}", response_model=ImageOut)
-async def update_image(image_id: int, file: UploadFile = File(...), db: Session = Depends(get_db)):
+async def update_image(image_id: int, entity_id: int | None = None, entity_name: str | None = None,
+                       compress: bool = False, file: UploadFile = File(...), db: Session = Depends(get_db)):
     contents = await file.read()
     update_data = ImageUpdate(
         filename=file.filename,
         content_type=file.content_type,
-        data=contents
+        data=contents,
+        entity_id=entity_id,
+        entity_name=entity_name,
+        is_compressed=compress
     )
     return service.update_existing_image(db=db, image_id=image_id, image=update_data)
 

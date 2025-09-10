@@ -8,5 +8,3 @@ class Slider(Base):
     title = Column(String, nullable=False)
     sub_title = Column(String, nullable=False)
     nav_title = Column(String, nullable=False)
-    #image = Column(LargeBinary, nullable=True)
-    #nav_icon = Column(LargeBinary, nullable=True)

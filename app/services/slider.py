@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from app.crud import slider as crud
 from fastapi import HTTPException
 from app.schemas.slider import SliderCreate, SliderUpdate
+from app.models.slider import Slider
 
 
 def get_all_sliders(db: Session):
@@ -13,7 +14,7 @@ def get_slider_by_id(db: Session, slider_id: int):
         raise HTTPException(status_code=404, detail="slider not found")
     return slider
 
-def create_new_slider(db: Session, slider_data: SliderCreate):
+def create_new_slider(db: Session, slider_data: SliderCreate) -> Slider:
     return crud.create_slider(db, slider_data)
 
 def update_existing_slider(db: Session, slider_id: int, updates: SliderUpdate):
